@@ -1,0 +1,50 @@
+.hero__desc {
+  box-shadow: 1px 1px 10px 1px gray;
+  border-radius: 15px;
+  padding-left: 20px;
+  width: 400px;
+
+  gap: 15px;
+  align-items: center;
+  height: 350px;
+  p {
+    position: relative;
+  }
+  button {
+    width: 70%;
+    height: 40px;
+    // padding: 1px;
+    // background-color: aqua;
+    border: 0.2px solid gainsboro;
+    border-radius: 25px;
+    &:hover {
+      background: orange;
+      transition: all ease 0.5s;
+      color: wheat;
+    }
+  }
+  p::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: orange;
+    top: 7px;
+    left: -15px;
+  }
+}
+.hero__img {
+  display: flex;
+
+  width: 80%;
+}
+@media (max-width: 957px) {
+  .tttt {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+}

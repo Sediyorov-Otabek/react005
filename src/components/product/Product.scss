@@ -1,0 +1,36 @@
+.productCard {
+  position: relative;
+  box-shadow: 1px 1px 10px 1px gainsboro;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 400px;
+  //   transform: translate(0.5s);
+  .textt {
+    font-size: 24px;
+  }
+  &:hover {
+    .product__savat {
+      position: absolute;
+      bottom: 5px;
+      right: 15px;
+      background-color: transparent;
+      transition: all ease 0.4s;
+    }
+    .div__num {
+      transition: all ease 0.4s;
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+    }
+  }
+  .product__savat {
+    position: absolute;
+    bottom: 0;
+    right: -50px;
+  }
+  .div__num {
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+  }
+}
