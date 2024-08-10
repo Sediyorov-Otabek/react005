@@ -5,7 +5,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <div className="w-full  bg-slate-200 p-5">
+    <div className="w-full mt-12  bg-slate-200 p-5">
       <div className="container  ">
         <div>
           <img src={footerlogo} alt="" />

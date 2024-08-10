@@ -5,7 +5,7 @@ import "./hero.scss";
 const Hero = () => {
   return (
     <div className="container tttt flex items-center justify-between gap-3 ">
-      <div className="hero__desc p-3 m-auto mb-12 flex  justify-center flex-col">
+      <div className="hero__desc  shadow-md p-3 m-auto mb-12 flex  justify-center flex-col">
         <b className="text-5xl">Мебель на любой вкус!</b>
         <div>
           <p>Худи, чашки для горячего чая и термосы</p>
