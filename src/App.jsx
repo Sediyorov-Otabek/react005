@@ -1,22 +1,23 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/header/Header";
-import Hero from "./components/hero/Hero";
-import Category from "./components/category/Category";
-import Product from "./components/product/Product";
 import Footer from "./components/footer/Footer";
+import { Routes, Route } from "react-router-dom";
+import Каталог from "./router/katalog/Каталог";
+import Home from "./router/home/Home";
+import Доставка from "./router/доставка/Доставка";
+import Call from "./router/call/Call";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Header />
-      <Hero />
-      <Category />
-      <Product />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/katalog" element={<Каталог />} />
+        <Route path="/доставка" element={<Доставка />} />
+        <Route path="/call" element={<Call />} />
+      </Routes>
+
       <Footer />
     </>
   );

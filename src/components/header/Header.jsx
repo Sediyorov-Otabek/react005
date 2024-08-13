@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/Ресурс 1 1.png";
 import "./Header.scss";
 import { TfiAlignJustify } from "react-icons/tfi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,16 +19,19 @@ const Header = () => {
         <div className={`nav__collection ${isMenuOpen ? "show" : ""}`}>
           <ul className=" nav__collect   flex items-center justify-center gap-4">
             <li>
-              <a href="">Каталог </a>
+              <Link to={"/"}> Home</Link>
             </li>
             <li>
-              <a href=""> Доставка </a>
+              <Link to={"/katalog"}> Каталог</Link>
             </li>
             <li>
-              <a href=""> Условия </a>
+              <Link to={"/доставка"}>Доставка</Link>
             </li>
             <li>
-              <a href=""> Контакты</a>
+              <a href="#"> Условия </a>
+            </li>
+            <li>
+              <Link to={"/call"}>Контакты</Link>
             </li>
           </ul>
         </div>
