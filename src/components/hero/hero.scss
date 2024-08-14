@@ -13,16 +13,39 @@
   button {
     width: 70%;
     height: 40px;
-    // padding: 1px;
-    // background-color: aqua;
+
     border: 0.2px solid gainsboro;
     border-radius: 25px;
-    &:hover {
-      background: orange;
-      transition: all ease 0.5s;
-      color: wheat;
+    background: linear-gradient(to right, orange, red); /* Başlanğıc rəngi */
+    background-size: 200% 100%; /* Gradientin tam ölçüsü */
+    animation: btn 1s infinite alternate-reverse;
+    transition: all ease 0.5s;
+  }
+
+  @keyframes btn {
+    0% {
+      background-position: 0% 0%; /* Soldan başlanır */
+      background: linear-gradient(to right, orange, red);
+    }
+    50% {
+      background-position: 50% 0%; /* Sağa doğru dəyişir */
+      background: linear-gradient(
+        to right,
+        rgb(139, 94, 245),
+        rgb(169, 197, 11)
+      );
+    }
+    100% {
+      background-position: 100% 0%; /* Sağa doğru dəyişir */
+      background: linear-gradient(to right, rgb(76, 0, 255), rgb(222, 247, 82));
     }
   }
+
+  button:hover {
+    background: orange;
+    color: wheat;
+  }
+
   p::before {
     content: "";
     position: absolute;

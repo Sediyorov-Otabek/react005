@@ -6,6 +6,7 @@ import Каталог from "./router/katalog/Каталог";
 import Home from "./router/home/Home";
 import Доставка from "./router/доставка/Доставка";
 import Call from "./router/call/Call";
+import NotFound from "./router/notFound/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/katalog" element={<Каталог />} />
         <Route path="/доставка" element={<Доставка />} />
         <Route path="/call" element={<Call />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
