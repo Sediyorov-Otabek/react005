@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Product.scss";
 import savat from "../../assets/Group 95.png";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import { useEffect, useState } from "react";
 const API_URL = "https://dummyjson.com";
 
@@ -54,13 +55,15 @@ const Product = () => {
   const productItem = products?.map((product) => (
     <div
       key={product.id}
-      className="productCard pb-5 w-72  flex flex-col items-start justify-center p-3"
+      className="productCard pb-5 w-72 shadow-md  flex flex-col items-start justify-center p-3"
     >
       <div
         className="imge__product w-56
       h-56 flex flex-col items-center m-auto "
       >
-        <img className="object-contain h-56" src={product.images[0]} alt="" />
+        <Link to={`/category/${product.id}`}>
+          <img className="object-contain h-56" src={product.images[0]} alt="" />
+        </Link>
       </div>
       <p className="text-red-600 font-extrabold">12%</p>
       <b className="textt">{product.title}</b>
@@ -90,19 +93,19 @@ const Product = () => {
     </div>
   ));
   const categoryItem = categories?.map((category) => (
-    <strong
+    <div
       onClick={(e) => setSellect(`/category/${e.target.textContent}`)}
       key={category}
       href=""
     >
       {" "}
-      <i
+      <p
         // velue={`/category/${category}`}
         className="whitespace-nowrap border shadow-md p-2 cursor-pointer rounded-md"
       >
         {category}
-      </i>
-    </strong>
+      </p>
+    </div>
   ));
   const load = (
     <div class="spinner">
@@ -116,6 +119,8 @@ const Product = () => {
       </div>
       <div className="container flex items-center justify-center gap-5 flex-wrap">
         {productItem}
+      </div>
+      <div className="w-full items-center justify-center">
         {loading && load}
       </div>
       {6 * offsetsy <= total ? (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiMenuFries } from "react-icons/ci";
 import { IoStarOutline } from "react-icons/io5";
@@ -9,6 +9,9 @@ import img1 from "../../assets/shutterstock_1735303136 2.png";
 import { VscAccount } from "react-icons/vsc";
 
 const Доставка = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="Доставка container flex flex-col gap-8">
       <div className="katolog__nav  flex items-center justify-between">

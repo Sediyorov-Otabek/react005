@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiMenuFries } from "react-icons/ci";
 import { IoStarOutline } from "react-icons/io5";
@@ -16,6 +16,9 @@ import rasm7 from "../../assets/Rectangle 187.png";
 import rasm8 from "../../assets/Rectangle 188.png";
 
 const Каталог = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="container flex flex-col gap-4 kotolog">
       <div className="katolog__nav  flex items-center justify-between">

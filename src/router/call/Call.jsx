@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiMenuFries } from "react-icons/ci";
 import { IoStarOutline } from "react-icons/io5";
@@ -11,6 +11,9 @@ import img3 from "../../assets/Group 42.png";
 import img4 from "../../assets/Group 44 (1).png";
 
 const Call = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="container">
       <div className="katolog__nav  flex items-center justify-between">

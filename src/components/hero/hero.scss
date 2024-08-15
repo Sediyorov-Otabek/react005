@@ -16,30 +16,30 @@
 
     border: 0.2px solid gainsboro;
     border-radius: 25px;
-    background: linear-gradient(to right, orange, red); /* Başlanğıc rəngi */
-    background-size: 200% 100%; /* Gradientin tam ölçüsü */
-    animation: btn 1s infinite alternate-reverse;
-    transition: all ease 0.5s;
+    background: linear-gradient(to right, orange, red);
+    background-size: 200% 100%;
+    animation: btn 2s infinite alternate;
+    transition: all ease 2s;
   }
 
-  @keyframes btn {
-    0% {
-      background-position: 0% 0%; /* Soldan başlanır */
-      background: linear-gradient(to right, orange, red);
-    }
-    50% {
-      background-position: 50% 0%; /* Sağa doğru dəyişir */
-      background: linear-gradient(
-        to right,
-        rgb(139, 94, 245),
-        rgb(169, 197, 11)
-      );
-    }
-    100% {
-      background-position: 100% 0%; /* Sağa doğru dəyişir */
-      background: linear-gradient(to right, rgb(76, 0, 255), rgb(222, 247, 82));
-    }
-  }
+  // @keyframes btn {
+  //   0% {
+  //     background-position: 0% 0%;
+  //     background: linear-gradient(to right, rgb(255, 165, 0), rgb(255, 0, 0));
+  //   }
+  //   50% {
+  //     background-position: 50% 0%; /* Sağa doğru dəyişir */
+  //     background: linear-gradient(
+  //       to right,
+  //       rgb(139, 94, 245),
+  //       rgb(169, 197, 11)
+  //     );
+  //   }
+  //   100% {
+  //     background-position: 100% 0%;
+  //     background: linear -gradient(to right, rgb(255, 165, 0), rgb(255, 0, 0));
+  //   }
+  // }
 
   button:hover {
     background: orange;

@@ -11,16 +11,15 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="w-full bg-slate-300 mb-20">
+    <header className="w-full bg-slate-300 mb-5">
       <nav className="container flex items-center justify-between py-5 relative ">
         <div>
-          <img src={logo} alt="" />
+          <Link to={"/"}>
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className={`nav__collection ${isMenuOpen ? "show" : ""}`}>
           <ul className=" nav__collect   flex items-center justify-center gap-4">
-            <li>
-              <Link to={"/"}> Home</Link>
-            </li>
             <li>
               <Link to={"/katalog"}> Каталог</Link>
             </li>
@@ -28,7 +27,7 @@ const Header = () => {
               <Link to={"/доставка"}>Доставка</Link>
             </li>
             <li>
-              <a href="#"> Условия </a>
+              <Link to={"/login"}> Admin</Link>
             </li>
             <li>
               <Link to={"/call"}>Контакты</Link>
