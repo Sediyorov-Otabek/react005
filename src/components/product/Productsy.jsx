@@ -1,10 +1,18 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import savat from "../../assets/Group 95.png";
 
 const Productsy = ({ products }) => {
+  const [offset, setOffset] = useState(0);
   console.log(products);
 
+  const handleIncrease = () => {
+    setOffset((prev) => prev + 1);
+  };
+
+  const handleDecrease = () => {
+    setOffset((prev) => (prev > 0 ? prev - 1 : 0));
+  };
   const productItem = products?.map((product) => (
     <div
       key={product.id}
@@ -26,16 +34,14 @@ const Productsy = ({ products }) => {
         <button
           className=" w-4 h-4 p-2 pb-3 rounded-md border flex items-center justify-center"
           disabled={product.count <= 0}
-          onClick={() => addToCartHandler(product.id, false)}
+          onClick={handleDecrease}
         >
           -
         </button>
-        <p className=" w-3 h-3  flex items-center justify-center">
-          {product.count}
-        </p>
+        <p className=" w-3 h-3  flex items-center justify-center">{offset}</p>
         <button
           className=" w-4 h-4 border p-2 pb-3 rounded-md flex items-center justify-center"
-          onClick={() => addToCartHandler(product.id)}
+          onClick={handleIncrease}
         >
           +
         </button>

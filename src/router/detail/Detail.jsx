@@ -10,13 +10,12 @@ import { useParams } from "react-router-dom";
 import img1 from "../../assets/Group 188.png";
 import img2 from "../../assets/Frame 3.png";
 import Productsy from "../../components/product/Productsy";
-const API_URL = "https://dummyjson.com";
 
 const Detail = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [products, setproduct] = useState([]);
-  const [offsett, setoffsett] = useState(0);
+  const [offset, setoffset] = useState(0);
 
   useEffect(() => {
     axios
@@ -35,6 +34,14 @@ const Detail = () => {
         .catch((err) => console.log(err));
     }
   }, [data]);
+
+  const handleIncrease = () => {
+    setoffset((prev) => prev + 1);
+  };
+
+  const handleDecrease = () => {
+    setoffset((prev) => (prev > 0 ? prev - 1 : 0));
+  };
 
   return (
     <div className="container pt-5">
@@ -87,14 +94,14 @@ const Detail = () => {
               <div className="flex items-center gap-8">
                 <button
                   className="border w-7 rounded-md justify-center pl-2 pr-2 items-center flex"
-                  // disabled={offset <= 0}
-                  // onClick={() => setoffset(offset - 1)}
+                  onClick={handleDecrease}
                 >
                   -
                 </button>
+                <b>{offset}</b>
                 <button
                   className="border rounded-md justify-center pl-2 pr-2 items-center flex w-7"
-                  // onClick={() => setoffset(offset + 1)}
+                  onClick={handleIncrease}
                 >
                   +
                 </button>
