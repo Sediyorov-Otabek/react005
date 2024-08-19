@@ -1,50 +1,44 @@
-import axios from "axios";
+import React, { memo, useEffect, useState } from "react";
+import axios from "../../api/index";
 import { CiSearch } from "react-icons/ci";
 import { CiMenuFries } from "react-icons/ci";
-import "../../components/product/Product.scss";
 import { IoStarOutline } from "react-icons/io5";
-import savat from "../../assets/Group 95.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
 import "./Detail.scss";
+import { useParams } from "react-router-dom";
 import img1 from "../../assets/Group 188.png";
 import img2 from "../../assets/Frame 3.png";
-// import { FaArrowRightLong } from "react-icons/fa6";
-import React, { memo, useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
 import Productsy from "../../components/product/Productsy";
 const API_URL = "https://dummyjson.com";
 
 const Detail = () => {
-  //   const location = useLocation();
-  //   console.log(location.pathname.split("/").slice(-1)[0]);
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const [products, setproduct] = useState(null);
+  const [products, setproduct] = useState([]);
+  const [offsett, setoffsett] = useState(0);
 
-  // const [offsett, setoffsett] = useState(0);
-
-  const onhandleClick = () => setoffsett(offsett + 1);
-  console.log(id);
-  //   useEffect(() => {
-  //     window.scrollTo(0, 0);
-  //   });
   useEffect(() => {
     axios
-      .get(`${API_URL}/product/${id}`)
+      .get(`/product/${id}`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
+
   useEffect(() => {
-    axios
-      .get(`${API_URL}/product`)
-      .then((res) => setproduct(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (data?.category) {
+      axios
+        .get(`/products/category/${data.category}`, {
+          params: { limit: 4 },
+        })
+        .then((res) => setproduct(res.data.products))
+        .catch((err) => console.log(err));
+    }
+  }, [data]);
 
   return (
     <div className="container pt-5">
-      <div className="katolog__nav   flex items-center justify-between">
+      <div className="katolog__nav flex items-center justify-between">
         <CiMenuFries />
         <form className="flex border items-center justify-center w-2/6 shadow-sm p-1 rounded-full">
           <input
@@ -61,14 +55,21 @@ const Detail = () => {
           <VscAccount />
         </div>
       </div>
-      <div className="detail_wrap  mt-10">
+      <div className="detail_wrap mt-10">
         <p>Товары Ванная Платяные шкафы</p>
         <hr />
         <div className="flex gap-11 mt-6">
-          <div className="w-1/2 flex flex-col items-center justify-center ">
+          <div className="w-1/2 flex flex-col items-center justify-center">
             <img src={data?.thumbnail} alt="" />
-            <div className="flex items-center justify-center">
-              {data?.images}
+            <div className="flex items-center w-40 h-40 justify-center">
+              {data?.images?.map((image, index) => (
+                <img
+                  key={index}
+                  className="object-contain"
+                  src={image}
+                  alt={`Product Image ${index}`}
+                />
+              ))}
             </div>
           </div>
           <div className="w-1/2 flex flex-col gap-4">
@@ -79,7 +80,7 @@ const Detail = () => {
             </div>
             <p className="text-gray-400">
               Банка с крышкой и поднос, 5 шт., стекло пробка банки и коробки
-              помогут организовать удобное хранение.{" "}
+              помогут организовать удобное хранение.
             </p>
             <div className="flex items-center gap-14">
               <b>{data?.price} USD</b>
@@ -91,7 +92,6 @@ const Detail = () => {
                 >
                   -
                 </button>
-                {/* <b>{offset}</b> */}
                 <button
                   className="border rounded-md justify-center pl-2 pr-2 items-center flex w-7"
                   // onClick={() => setoffset(offset + 1)}
@@ -106,10 +106,10 @@ const Detail = () => {
               </button>
               <div className="flex items-center gap-2">
                 <div>
-                  <img src={img1} alt="" />
+                  <img src={img1} alt="Image 1" />
                 </div>
                 <div>
-                  <img src={img2} alt="" />
+                  <img src={img2} alt="Image 2" />
                 </div>
               </div>
             </div>
@@ -124,9 +124,9 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="cards w-full  mt-9 justify-center items-center">
+      <div className="cards w-full mt-9 justify-center items-center">
         <b>С этим товаром также заказывают</b>
-        <div className="card_wrap mt-8 flex items-center justify-center gap-3">
+        <div className="card_wrap mt-8 grid grid-row-4 items-center justify-center gap-3">
           <Productsy products={products} />
         </div>
       </div>

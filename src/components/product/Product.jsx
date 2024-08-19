@@ -1,7 +1,8 @@
 import React, { useState, useEffect, memo } from "react";
 import "./Product.scss";
 import savat from "../../assets/Group 95.png";
-import axios from "axios";
+// import axios from "axios";
+import axios from "../../api/index";
 import { Link } from "react-router-dom";
 import Productsy from "./Productsy";
 // import { useEffect, useState } from "react";
@@ -18,7 +19,7 @@ const Product = () => {
   const handleClick = () => setoffset(offset + 1);
   useEffect(() => {
     axios
-      .get(`${API_URL}/products/category-list`)
+      .get(`/products/category-list`)
       .then((res) => setcategories(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -26,7 +27,7 @@ const Product = () => {
   useEffect(() => {
     setloding(true);
     axios
-      .get(`${API_URL}/products${sellect}`, {
+      .get(`/products${sellect}`, {
         params: {
           limit: 6 * offsetsy,
         },
