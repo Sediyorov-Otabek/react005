@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import logo from "../../assets/Ресурс 1 1.png";
 import "./Header.scss";
 import { TfiAlignJustify } from "react-icons/tfi";
@@ -11,7 +11,7 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <header className="w-full bg-slate-300 mb-5">
+    <header className="w-full bg-slate-300 ">
       <nav className="container flex items-center justify-between py-5 relative ">
         <div>
           <Link to={"/"}>
@@ -49,4 +49,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

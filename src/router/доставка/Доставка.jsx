@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiMenuFries } from "react-icons/ci";
 import { IoStarOutline } from "react-icons/io5";
@@ -14,7 +14,7 @@ const Доставка = () => {
   });
   return (
     <div className="Доставка container flex flex-col gap-8">
-      <div className="katolog__nav  flex items-center justify-between">
+      <div className="katolog__nav  mt-6 flex items-center justify-between">
         <CiMenuFries />
         <form className="flex border items-center justify-center w-2/6 shadow-sm p-1 rounded-full">
           <input
@@ -126,4 +126,4 @@ const Доставка = () => {
   );
 };
 
-export default Доставка;
+export default memo(Доставка);

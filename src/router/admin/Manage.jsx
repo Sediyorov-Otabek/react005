@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import img from "../../assets/22.jpg";
 
 const Manage = () => {
@@ -21,4 +21,4 @@ const Manage = () => {
   );
 };
 
-export default Manage;
+export default memo(Manage);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiMenuFries } from "react-icons/ci";
 import { IoStarOutline } from "react-icons/io5";
@@ -20,8 +20,8 @@ const Каталог = () => {
     window.scrollTo(0, 0);
   });
   return (
-    <div className="container flex flex-col gap-4 kotolog">
-      <div className="katolog__nav  flex items-center justify-between">
+    <div className="container flex  border flex-col gap-4 kotolog">
+      <div className="katolog__nav mt-5  flex items-center justify-between">
         <CiMenuFries />
         <form className="flex border items-center justify-center w-2/6 shadow-sm p-1 rounded-full">
           <input
@@ -157,4 +157,4 @@ const Каталог = () => {
   );
 };
 
-export default Каталог;
+export default memo(Каталог);

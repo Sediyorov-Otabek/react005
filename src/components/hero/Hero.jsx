@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import heroimg from "../../assets/image 34.png";
 import "./hero.scss";
 
 const Hero = () => {
   return (
-    <div className="container tttt flex items-center justify-between gap-3 ">
-      <div className="hero__desc shadow-md p-3 m-auto mb-12 flex  justify-center flex-col">
+    <div className="container mt-5 tttt flex items-center justify-between gap-3 ">
+      <div className="hero__desc  mt-5shadow-md p-3 m-auto mb-12 flex  justify-center flex-col">
         <b className="text-5xl">Мебель на любой вкус!</b>
         <div>
           <p>Худи, чашки для горячего чая и термосы</p>
@@ -17,11 +17,11 @@ const Hero = () => {
           <button>Внести список артикулов</button>
         </div>
       </div>
-      <div className="hero__img flex m-auto justify-end">
+      <div className="hero__img mt-7 flex m-auto justify-end">
         <img className="img" src={heroimg} alt="" />
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default memo(Hero);

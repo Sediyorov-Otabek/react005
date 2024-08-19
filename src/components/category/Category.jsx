@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Category.scss";
 import img1 from "../../assets/klipartz 1.png";
 import img2 from "../../assets/kisspng-himalayas-light-himalayan-salt-wbm-himalayan-1003-salt-lamp-5b1c090d888e67 1.png";
@@ -79,4 +79,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default memo(Category);

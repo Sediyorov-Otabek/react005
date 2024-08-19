@@ -12,6 +12,7 @@ import Admin from "./router/admin/Admin";
 import Manage from "./router/admin/Manage";
 import Login from "./router/login/Login";
 import Ummon from "./router/admin/Ummon";
+import Auth from "./router/auth/Auth";
 
 function App() {
   return (
@@ -24,9 +25,11 @@ function App() {
         <Route path="/call" element={<Call />} />
         <Route path="/category/:id" element={<Detail />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />}>
-          <Route path="manage" element={<Manage />}></Route>
-          <Route path="ummon" element={<Ummon />}></Route>
+        <Route path="/" element={<Auth />}>
+          <Route path="/admin" element={<Admin />}>
+            <Route path="manage" element={<Manage />}></Route>
+            <Route path="ummon" element={<Ummon />}></Route>
+          </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Admin = () => {
   return (
-    <div className="container flex">
-      <div className="flex flex-col items-center w-80 h-screen bg-slate-400">
+    <div className=" flex">
+      <div className="flex flex-col items-center w-80 h-screen bg-slate-300">
         <b>Admin</b>
         <NavLink className={"border-t w-full text-center"} to="manage">
           <p>Manage</p>
@@ -18,4 +18,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default memo(Admin);

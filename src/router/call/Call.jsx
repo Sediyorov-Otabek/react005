@@ -15,8 +15,8 @@ const Call = () => {
     window.scrollTo(0, 0);
   });
   return (
-    <div className="container">
-      <div className="katolog__nav  flex items-center justify-between">
+    <div className="container pt-5">
+      <div className="katolog__nav mt-6 flex items-center justify-between">
         <CiMenuFries />
         <form className="flex border items-center justify-center w-2/6 shadow-sm p-1 rounded-full">
           <input
